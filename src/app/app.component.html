@@ -2,17 +2,20 @@
 <div class="container">
   <div style="text-align:center">
     <h1>
-      Welcome to {{ title }}!
+      Welcome, {{ userName }}!
     </h1>
   </div>
+  <form>
+    <input [(ngModel)]="userName" type="text" name="user">
+  </form>
   <ul>
-    <li *ngFor="let recipe of newRecipe"  class="remove-bullet">
-      <h2>{{ recipe.name }}</h2>
+    <li [class]="cuisineClassColor(recipe)" *ngFor="let recipe of newRecipe"  class="remove-bullet">
+      <h2>{{ recipe.name }}<button (click)="editRecipe(recipe)">Edit</button></h2>
       <div class="row">
         <div class="col-md-6">
           <h5>Ingredients:</h5>
           <ul>
-            <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+            <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}<button (click)="editIngredient(ingredient)">Edit</button></li>
           </ul>
         </div>
         <div class="col-md-6">
@@ -24,4 +27,13 @@
       </div>
     </li>
   </ul>
+  <h3>{{ selectedRecipe.name }}</h3>
+  <h3>Edit Recipe Name</h3>
+  <label>Enter Recipe Name:</label>
+  <input [(ngModel)]="selectedRecipe.name">
+  <br>
+  <h3>{{ selectedIngredient}}</h3>
+  <h3>Edit Ingredient</h3>
+  <label>Enter Ingredient:</label>
+  <input [(ngModel)]="selectedIngredient">
 </div>
