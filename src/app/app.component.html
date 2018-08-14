@@ -27,13 +27,20 @@
       </div>
     </li>
   </ul>
-  <h3>{{ selectedRecipe.name }}</h3>
-  <h3>Edit Recipe Name</h3>
-  <label>Enter Recipe Name:</label>
-  <input [(ngModel)]="selectedRecipe.name">
-  <br>
-  <h3>{{ selectedIngredient}}</h3>
-  <h3>Edit Ingredient</h3>
-  <label>Enter Ingredient:</label>
-  <input [(ngModel)]="selectedIngredient">
+  <div *ngIf="selectedRecipe">
+    <h3>{{ selectedRecipe.name }}</h3>
+    <h3>Edit Recipe Name</h3>
+    <label>Enter Recipe Name:</label>
+    <input [(ngModel)]="selectedRecipe.name">
+    <button (click)="finishedEditing()">Done</button>
+  </div>
+
+  <div *ngIf="selectedIngredient">
+    <h3>{{ selectedIngredient}}</h3>
+    <h3>Edit Ingredient</h3>
+    <label>Enter Ingredient:</label>
+    <input [(ngModel)]="selectedIngredient">
+    <button (click)="finishedEditing()">Done</button>
+  </div>
+
 </div>
