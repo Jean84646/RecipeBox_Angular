@@ -1,0 +1,23 @@
+1. Install ngx-bootstrap and bootstrap:
+
+npm install ngx-bootstrap bootstrap --save
+This line installs Bootstrap 3 nowadays, but can install Bootstrap 4 in the future. Keep in mind ngx-bootstrap supports both versions.
+
+2. Open src/app/app.module.ts and add:
+
+import { AlertModule } from 'ngx-bootstrap';
+...
+@NgModule({
+...
+imports: [AlertModule.forRoot(), ... ],
+...
+})
+3. Open angular-cli.json and insert a new entry into the styles array:
+
+"styles": [
+"styles.css",
+"../node_modules/bootstrap/dist/css/bootstrap.min.css"
+],
+4. Open src/app/app.component.html and add:
+
+<alert type="success">hello</alert>
